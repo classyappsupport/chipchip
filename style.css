@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap");
+
+:root {
+  --ink: #3A2E5C;
+  --ink-soft: #6B6185;
+  --cream: #FFF8EC;
+  --card: #FFFFFF;
+  --sun: #FFC93C;
+  --sun-deep: #E8A93A;
+  --coral: #FF7A85;
+  --sky: #5AB8FF;
+  --mint: #5ED6B4;
+  --grape: #A88BFF;
+  --line: #F1E4CC;
+  --shadow: 0 10px 30px rgba(58, 46, 92, .10);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #FFF3DC;
+    --ink-soft: #CFC6E6;
+    --cream: #1F1A33;
+    --card: #2B2545;
+    --line: #3C3460;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--cream); color: var(--ink);
+  font: 500 17px/1.6 Nunito, ui-rounded, "SF Pro Rounded", -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans",
+    "Apple SD Gothic Neo", "Noto Sans Thai", Thonburi, sans-serif;
+}
+a { color: #1E88E5; }
+@media (prefers-color-scheme: dark) { a { color: #8CCBFF; } }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+.top { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--cream) 88%, transparent);
+       backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 18px; min-height: 64px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 900; font-size: 20px; }
+.brand img { width: 38px; height: 38px; border-radius: 10px; box-shadow: var(--shadow); }
+nav { display: flex; gap: 4px; flex: 1; flex-wrap: wrap; }
+nav a { color: var(--ink-soft); text-decoration: none; font-weight: 800; padding: 6px 12px; border-radius: 999px; }
+nav a:hover, nav a[aria-current] { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
+.lang { font: inherit; font-weight: 700; color: var(--ink); background: var(--card); border: 2px solid var(--line);
+        border-radius: 999px; padding: 6px 12px; }
+
+/* Home */
+.hero { text-align: center; padding: 56px 0 28px; }
+.hero .icon { width: 132px; height: 132px; border-radius: 30px; box-shadow: 0 16px 40px rgba(232, 169, 58, .35);
+              animation: bob 2.4s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-8px); } }
+@media (prefers-reduced-motion: reduce) { .hero .icon { animation: none; } }
+h1 { font-size: clamp(32px, 6vw, 54px); line-height: 1.12; font-weight: 900; margin: 22px 0 14px; letter-spacing: -.01em; }
+h1 span { color: var(--sun-deep); }
+.lead { font-size: 19px; max-width: 720px; margin: 0 auto; color: var(--ink-soft); }
+.btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
+.btn { display: inline-block; padding: 14px 24px; border-radius: 999px; font-weight: 900; text-decoration: none;
+       background: var(--sun); color: #3A2E5C; box-shadow: 0 6px 0 var(--sun-deep); }
+.btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--sun-deep); }
+.btn.ghost { background: var(--card); color: var(--ink); box-shadow: 0 6px 0 var(--line); }
+.btn.soon { cursor: default; }
+
+.shots { display: flex; gap: 16px; overflow-x: auto; padding: 18px 4px 28px; scroll-snap-type: x mandatory; }
+.shots img { height: 460px; width: auto; border-radius: 22px; box-shadow: var(--shadow); scroll-snap-align: center; flex: none; }
+@media (max-width: 600px) { .shots img { height: 380px; } }
+
+h2 { font-size: 26px; font-weight: 900; margin: 40px 0 12px; line-height: 1.25; }
+.center { text-align: center; }
+.sub { color: var(--ink-soft); max-width: 720px; margin: 0 auto 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.card { background: var(--card); border-radius: 24px; padding: 22px; box-shadow: var(--shadow); }
+.card .emoji { font-size: 38px; line-height: 1; }
+.card h3 { margin: 12px 0 4px; font-size: 19px; font-weight: 900; }
+.card p { margin: 0; color: var(--ink-soft); }
+.games { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+.game { display: flex; gap: 14px; align-items: flex-start; background: var(--card); border-radius: 20px; padding: 14px 16px;
+        box-shadow: var(--shadow); }
+.game .emoji { font-size: 34px; width: 56px; height: 56px; flex: none; display: grid; place-items: center;
+               background: color-mix(in srgb, var(--sun) 28%, transparent); border-radius: 50%; }
+.game h3 { margin: 2px 0 2px; font-size: 17px; font-weight: 900; }
+.game p { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.45; }
+.band { margin: 36px 0 12px; background: linear-gradient(135deg, #7CCBFF, #A88BFF); color: #fff; border-radius: 28px; padding: 26px 28px; }
+.band.soft { background: linear-gradient(135deg, #8BD46E, #5ED6B4); }
+.band h2 { margin: 0 0 6px; }
+.band p { margin: 0; font-weight: 700; }
+.band a { color: #fff; }
+
+/* Articles */
+article { max-width: 760px; margin: 0 auto; padding: 36px 0 20px; }
+article h1 { font-size: clamp(30px, 5vw, 42px); margin-top: 8px; }
+article h2 { font-size: 21px; margin: 30px 0 6px; }
+.meta { color: var(--ink-soft); margin-top: -4px; }
+.summary { background: color-mix(in srgb, var(--sun) 22%, var(--card)); border: 2px solid color-mix(in srgb, var(--sun) 60%, transparent);
+           border-radius: 20px; padding: 4px 20px; }
+.panel { background: var(--card); border-radius: 22px; padding: 6px 22px 10px; margin: 16px 0; box-shadow: var(--shadow); }
+.panel h2 { margin-top: 16px; }
+details { background: var(--card); border-radius: 18px; padding: 14px 18px; margin: 10px 0; box-shadow: var(--shadow); }
+summary { font-weight: 900; cursor: pointer; }
+details p { margin: 10px 0 2px; color: var(--ink-soft); }
+li { margin: 4px 0; }
+
+footer { margin-top: 48px; padding: 24px 0 36px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 15px; }
+footer .wrap { display: flex; gap: 18px; flex-wrap: wrap; }
+footer a { color: var(--ink-soft); }
+
+@media (max-width: 640px) {
+  .top .wrap { gap: 8px; padding-top: 8px; padding-bottom: 8px; }
+  nav { order: 3; flex-basis: 100%; overflow-x: auto; flex-wrap: nowrap; }
+  .lang { margin-left: auto; }
+}
